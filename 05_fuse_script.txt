@@ -1,0 +1,1 @@
+olive run --config C:\Users\sumit\work\llama32_onnx_chain\olive_fuseonly.json

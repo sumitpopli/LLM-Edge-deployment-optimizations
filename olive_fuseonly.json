@@ -1,0 +1,40 @@
+{
+  "input_model": {
+    "type": "ONNXModel",
+    "config": {
+      "model_path": "C:\\Users\\sumit\\Work\\huggingface\\Llama-2-7b-hf_stage03_onnx\\model.onnx"
+    }
+  },
+  "systems": {
+    "local_system": {
+      "type": "LocalSystem",
+      "config": {
+        "accelerators": [
+          {
+            "device": "cpu",
+            "execution_providers": ["CPUExecutionProvider"]
+          }
+        ]
+      }
+    }
+  },
+  "passes": {
+    "transformers_optimization": {
+      "type": "OrtTransformersOptimization",
+      "config": {
+        "model_type": "gpt2",
+        "num_heads": 32,
+        "hidden_size": 4096,
+        "opt_level": 2,
+        "only_onnxruntime": true
+      }
+    }
+  },
+  "engine": {
+    "search_strategy": false,
+    "host": "local_system",
+    "target": "local_system",
+    "cache_dir": "C:\\Users\\sumit\\Work\\huggingface\\Llama-2-7b-hf_stage05_onnx_fused\\olive_cache",
+    "output_dir": "C:\\Users\\sumit\\Work\\huggingface\\Llama-2-7b-hf_stage05_onnx_fused"
+  }
+}
